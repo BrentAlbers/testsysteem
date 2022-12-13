@@ -24,4 +24,7 @@ Route::get('/contact', [PagesController::class, 'viewContactPage'])->name('conta
 Route::get('/overons', [PagesController::class, 'viewOveronsPage'])->name('overons');
 Route::get('/events', [PagesController::class, 'viewEventsPage'])->name('events');
 
+Route::post('/processForm', [FormController::class, 'processForm'])->name('processForm');
+
 require __DIR__.'/auth.php';
+ 
