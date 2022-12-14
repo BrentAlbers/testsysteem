@@ -1,5 +1,11 @@
 @extends('layouts.main')
 @section('content')
+@if(Auth::user()->admin == 0)
+    <?php
+    header("Location: http://testsysteem.test/");
+    exit();
+    ?>
+@endif
 <form action="{{route('processForm')}}"  method="POST">
     @csrf
     <label>name</label>
