@@ -39,6 +39,11 @@
             <td>{{ $event->location }}</td>
             <td>{{ $event->price }}</td>
             <td>{{ $event->description }}</td>
+            <td>            
+                    <div class="bin">
+                        <a href="{{ route('delete_team', $event->id) }}"><img src="/img/trash-can-icon-28693.png" height="20px"  alt="verwijderen"></a>
+                    </div>
+                </td>
         </tr>
     @endforeach
 </table>

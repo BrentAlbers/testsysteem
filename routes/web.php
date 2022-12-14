@@ -26,5 +26,7 @@ Route::get('/events', [PagesController::class, 'viewEventsPage'])->name('events'
 
 Route::post('/processForm', [PagesController::class, 'processForm'])->name('processForm');
 
+Route::get('delete/{id}/', [PagesController::class, 'delete'])->name('delete_team');
+
 require __DIR__.'/auth.php';
  

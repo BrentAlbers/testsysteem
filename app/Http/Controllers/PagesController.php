@@ -35,4 +35,12 @@ class PagesController extends Controller
 
         return redirect()->route('home');
     }
+    public function delete($id)
+    {
+        
+        $event = Event::findOrFail($id);
+        $event =  Event::where("id", $id);
+        $event->delete();
+        return back();
+    }
 }
