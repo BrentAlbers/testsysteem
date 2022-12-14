@@ -11,7 +11,9 @@
                 <button class="nav-link" type="submit">Logout</button>
 
             </form>
-            <a href="{{ route('events') }}">event page</a>
+            @if(Auth::user()->admin == 1)
+                <a href="{{ route('events') }}">make event page</a>
+            @endif
         @else
             <a href="{{ route('login') }}">login</a>
             <a href="{{ route('register') }}">register</a>

@@ -13,8 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cars', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('photo');
+            $table->datetime('event_start');
+            $table->datetime('event_end');
+            $table->unsignedInteger('available_tickets');
+            $table->string('location');
+            $table->decimal('price', 20, 2);
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -26,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cars');
+        //
     }
 };

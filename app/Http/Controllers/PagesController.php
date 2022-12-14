@@ -17,7 +17,8 @@ class PagesController extends Controller
         return view('overons');
     }
     public function viewEventsPage() {
-        return view('events');
+        $allEvents = Event::all();
+        return view('events',['events' => $allEvents]);
     }
 
     public function processForm(Request $request){
@@ -26,7 +27,8 @@ class PagesController extends Controller
         $event->photo = $request->input('photo');
         $event->event_start = $request->input('event_start');
         $event->event_end = $request->input('event_end');
-        $event->avalaible_tickets = $request->input('avalaible_tickets');
+        $event->available_tickets = $request->input('available_tickets');
+        $event->price = $request->input('price');
         $event->location = $request->input('location');
         $event->description = $request->input('description');
         $event->save();
