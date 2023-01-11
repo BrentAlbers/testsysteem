@@ -10,6 +10,10 @@ class PagesController extends Controller
     public function viewHomePage() {
         return view('home');
     }
+    public function viewPublicEventsPage() {
+        $allEvents = Event::all();
+        return view('publicevents',['events' => $allEvents]);
+    }
     public function viewContactPage() {
         return view('contact');
     }
@@ -19,6 +23,10 @@ class PagesController extends Controller
     public function viewEventsPage() {
         $allEvents = Event::all();
         return view('events',['events' => $allEvents]);
+    }
+    public function viewEditPage($id) {
+        $event = Event::findOrFail($id);
+        return view('edit',['event' => $event]);
     }
 
     public function processForm(Request $request){
@@ -42,5 +50,19 @@ class PagesController extends Controller
         $event =  Event::where("id", $id);
         $event->delete();
         return back();
+    }
+    public function edit($id, Request $request)
+    {
+        $event = Event::where("id", $id)->first();
+        $event->name = $request->input('name');
+        $event->photo = $request->input('photo');
+        $event->event_start = $request->input('event_start');
+        $event->event_end = $request->input('event_end');
+        $event->available_tickets = $request->input('available_tickets');
+        $event->price = $request->input('price');
+        $event->location = $request->input('location');
+        $event->description = $request->input('description');
+        $event->save();
+        return redirect()->route('home');
     }
 }

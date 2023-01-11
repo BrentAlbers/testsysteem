@@ -9,22 +9,22 @@
 <form action="{{route('processForm')}}"  method="POST">
     @csrf
     <label>name</label>
-    <input type="text" name="name">
+    <input type="text" name="name"><br>
     <label>photo</label>
-    <input type="text" name="phot">
+    <input type="text" name="photo"><br>
     <label>event_start</label>
-    <input type="date" name="event_start">
+    <input type="date" name="event_start"><br>
     <label>event_end</label>
-    <input type="date" name="event_end">
+    <input type="date" name="event_end"><br>
     <label>available_tickets</label>
-    <input type="number" name="available_tickets">
+    <input type="number" name="available_tickets"><br>
     <label>location</label>
-    <input type="text" name="location">
+    <input type="text" name="location"><br>
     <label>price</label>
-    <input type="number" name="price">
+    <input type="number" name="price"><br>
     <label>description</label>
-    <textarea name="description" cols="30" rows="10"></textarea>
-    <button type="submit">submit</button>
+    <textarea name="description" cols="30" rows="2"></textarea><br>
+    <button type="submit">submit</button><br>
 </form>
 <table>
     <tr>
@@ -49,7 +49,11 @@
                     <div class="bin">
                         <a href="{{ route('delete_team', $event->id) }}"><img src="/img/trash-can-icon-28693.png" height="20px"  alt="verwijderen"></a>
                     </div>
-                </td>
+                    </td>
+                    <td>
+                    <a href="{{ 'edit/'.$event->id }}"> aanpassen</a>
+                    </td>
+                
         </tr>
     @endforeach
 </table>
