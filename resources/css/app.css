@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-h1{
-    color: blue;
+.background-image
+{
+    background-image: url('https://www.entertainmentbusiness.nl/wp-content/uploads/2021/03/EB-Header-1-800x450.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 600px;
 }
+

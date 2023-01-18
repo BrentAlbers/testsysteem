@@ -24,6 +24,7 @@ Route::get('/contact', [PagesController::class, 'viewContactPage'])->name('conta
 Route::get('/overons', [PagesController::class, 'viewOveronsPage'])->name('overons');
 Route::get('/events', [PagesController::class, 'viewEventsPage'])->name('events');
 Route::get('/publicevents', [PagesController::class, 'viewPublicEventsPage'])->name('publicevents');
+Route::get('/mytickets', [PagesController::class, 'viewMyTicketsPage'])->name('mytickets');
 
 Route::post('/processForm', [PagesController::class, 'processForm'])->name('processForm');
 
@@ -31,6 +32,9 @@ Route::get('delete/{id}/', [PagesController::class, 'delete'])->name('delete_tea
 
 Route::get('/edit/{id}/', [PagesController::class, 'viewEditPage'])->name('edit');
 Route::post('/edit/{id}/', [PagesController::class, 'edit'])->name('edit');
+
+Route::get('/buyticket/{id}/', [PagesController::class, 'viewBuyTicketPage'])->name('buyticket');
+Route::post('/createticket/{id}/', [PagesController::class, 'createTicket'])->name('createticket');
 
 require __DIR__.'/auth.php';
  
